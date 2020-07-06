@@ -1,9 +1,3 @@
-fetch('http://puzzle.mead.io/puzzle').then((response)=>{
-    response.json().then((data)=>{
-        console.log(data)
-    })
-})
-
 
 const WeatherForm = document.querySelector('form')
 const SearchKey = document.querySelector('input')
