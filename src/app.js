@@ -16,6 +16,9 @@ const partialPath = path.join(__dirname, '../templates/partials')
 // To make use of the express in rendering view
 const app = express()
 
+// for heroku to understand our port
+const port = process.env.PORT || 3000
+
 // to change from default handlebars view to another folder
 const viewPath = path.join(__dirname, '../templates/views')
 
@@ -95,17 +98,7 @@ app.get('/weather', (req, res)=>{
     })
 })
 
-app.get('/products', (req, res)=>{
-    if(!req.query.search)
-    {
-       return res.send({
-            error:'cant access it'
-        })
-    }
-    res.send({
-        products: []
-    })
-})
+
 
 // For the particular page error
 app.get('/about/*', (req, res)=>{
@@ -124,6 +117,6 @@ app.get('*', (req, res)=>{
 
 
 
-app.listen(3000, () =>{
+app.listen(port, () =>{
     console.log('Server is on on port 3000')
 })
